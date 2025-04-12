@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareBite - Donation Status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #a4b465;
+            --secondary: #626f47;
+            --accent: #ffc850;
+            --background: #fefae0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .status-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        
+        .status-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .status-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .status-count {
+            background-color: white;
+            color: var(--secondary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .donation-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .donation-title {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--secondary);
+        }
+        
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .badge-pending {
+            background-color: #FFF3CD;
+            color: #856404;
+        }
+        
+        .badge-accepted {
+            background-color: #D1ECF1;
+            color: #0C5460;
+        }
+        
+        .badge-completed {
+            background-color: #D4EDDA;
+            color: #155724;
+        }
+        
+        .donation-details {
+            margin-bottom: 15px;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 8px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            width: 120px;
+            color: var(--secondary);
+        }
+        
+        .detail-value {
+            flex: 1;
+        }
+        
+        .recipient-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .recipient-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .recipient-contact {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .status-icon {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .no-donations {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            background-color: white;
+            border-radius: 8px;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: #e9ecef;
+            border-radius: 3px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+        }
+        
+        .progress-pending {
+            width: 30%;
+            background-color: #FFC107;
+        }
+        
+        .progress-accepted {
+            width: 70%;
+            background-color: #17A2B8;
+        }
+        
+        .progress-completed {
+            width: 100%;
+            background-color: #28A745;
+        }
+        
+        @media (max-width: 768px) {
+            .status-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-utensils"></i> Your Donation Status</h1>
+        
+        <div class="status-container">
+            <!-- Pending Donations Column -->
+            <div class="status-column">
+                <div class="status-header">
+                    <span><i class="fas fa-clock"></i> Pending</span>
+                    <span class="status-count">2</span>
+                </div>
+                
+                <div class="donation-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="donation-title">Vegetable Biryani</div>
+                            <div class="status-badge badge-pending">Pending</div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-pending"></div>
+                        </div>
+                        
+                        <div class="donation-details">
+                            <div class="detail-row">
+                                <div class="detail-label">Plates:</div>
+                                <div class="detail-value">12</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Type:</div>
+                                <div class="detail-value">Vegetarian</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Posted:</div>
+                                <div class="detail-value">Today, 10:30 AM</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Location:</div>
+                                <div class="detail-value">Downtown Community Center</div>
+                            </div>
+                        </div>
+                        
+                        <div class="icon-container">
+                            <i class="fas fa-hourglass-half status-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donation-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="donation-title">Mixed Fruit Baskets</div>
+                            <div class="status-badge badge-pending">Pending</div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-pending"></div>
+                        </div>
+                        
+                        <div class="donation-details">
+                            <div class="detail-row">
+                                <div class="detail-label">Plates:</div>
+                                <div class="detail-value">8</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Type:</div>
+                                <div class="detail-value">Vegetarian</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Posted:</div>
+                                <div class="detail-value">Yesterday, 4:15 PM</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Location:</div>
+                                <div class="detail-value">Northside Food Bank</div>
+                            </div>
+                        </div>
+                        
+                        <div class="icon-container">
+                            <i class="fas fa-hourglass-half status-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accepted Donations Column -->
+            <div class="status-column">
+                <div class="status-header">
+                    <span><i class="fas fa-check-circle"></i> Accepted</span>
+                    <span class="status-count">1</span>
+                </div>
+                
+                <div class="donation-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="donation-title">Chicken Curry Meal</div>
+                            <div class="status-badge badge-accepted">Accepted</div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-accepted"></div>
+                        </div>
+                        
+                        <div class="donation-details">
+                            <div class="detail-row">
+                                <div class="detail-label">Plates:</div>
+                                <div class="detail-value">15</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Type:</div>
+                                <div class="detail-value">Non-Vegetarian</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Posted:</div>
+                                <div class="detail-value">2 days ago, 11:20 AM</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Accepted:</div>
+                                <div class="detail-value">Yesterday, 9:45 AM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="recipient-info">
+                            <div class="recipient-name">Accepted by: Sunshine Shelter</div>
+                            <div class="recipient-contact">Contact: Sarah Johnson (555-123-4567)</div>
+                            <div class="recipient-contact">Pickup scheduled for today at 5:30 PM</div>
+                        </div>
+                        
+                        <div class="icon-container">
+                            <i class="fas fa-people-carry status-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="no-donations">
+                    <i class="far fa-smile" style="font-size: 40px; color: var(--accent);"></i>
+                    <p>No other accepted donations at this time</p>
+                </div>
+            </div>
+            
+            <!-- Completed Donations Column -->
+            <div class="status-column">
+                <div class="status-header">
+                    <span><i class="fas fa-clipboard-check"></i> Completed</span>
+                    <span class="status-count">3</span>
+                </div>
+                
+                <div class="donation-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="donation-title">Vegetable Pulao</div>
+                            <div class="status-badge badge-completed">Completed</div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-completed"></div>
+                        </div>
+                        
+                        <div class="donation-details">
+                            <div class="detail-row">
+                                <div class="detail-label">Plates:</div>
+                                <div class="detail-value">20</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Type:</div>
+                                <div class="detail-value">Vegetarian</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Posted:</div>
+                                <div class="detail-value">1 week ago</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Completed:</div>
+                                <div class="detail-value">5 days ago</div>
+                            </div>
+                        </div>
+                        
+                        <div class="recipient-info">
+                            <div class="recipient-name">Received by: Hope Community Center</div>
+                            <div class="recipient-contact">Served to 18 people</div>
+                            <div class="recipient-contact">Thank you for your donation!</div>
+                        </div>
+                        
+                        <div class="icon-container">
+                            <i class="fas fa-heart status-icon" style="color: #e83e8c;"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donation-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="donation-title">Sandwich Platters</div>
+                            <div class="status-badge badge-completed">Completed</div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-completed"></div>
+                        </div>
+                        
+                        <div class="donation-details">
+                            <div class="detail-row">
+                                <div class="detail-label">Plates:</div>
+                                <div class="detail-value">25</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Type:</div>
+                                <div class="detail-value">Vegetarian</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Posted:</div>
+                                <div class="detail-value">2 weeks ago</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">Completed:</div>
+                                <div class="detail-value">10 days ago</div>
+                            </div>
+                        </div>
+                        
+                        <div class="recipient-info">
+                            <div class="recipient-name">Received by: Downtown Shelter</div>
+                            <div class="recipient-contact">Distributed to homeless individuals</div>
+                            <div class="recipient-contact">Your donation made a difference!</div>
+                        </div>
+                        
+                        <div class="icon-container">
+                            <i class="fas fa-heart status-icon" style="color: #e83e8c;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

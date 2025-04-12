@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donor Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="donor.css" />
+</head>
+<body>
+  <div class="container py-4">
+    <div class="text-center">
+      <img src="logo.png" alt="Logo" class="logo mb-2">
+      <h3 class="text-success">DONOR</h3>
+    </div>
+
+    <div class="text-center mb-3">
+      <img src="usericon.jpg" alt="User Icon" class="user-icon">
+      <h5 class="mb-0">Sonia Rai</h5>
+      <p class="text-primary mb-1">Points: 1000</p>
+      <p class="highlighted">🏅 Best Donor</p>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 mb-4">
+      <button class="btn btn-success" onclick="newDonation()"><a href="fooddetail.html" style="color: white; text-decoration: none";>+ New Donation</a></button>
+      <button class="btn btn-success" onclick="checkStatus()"><a href="checkStatus.html" style="color: white; text-decoration: none";>Check Status of Donations</a></button>
+    </div>
+
+    <div class="text-center mb-2">
+      <h5 class="highlighted">Leader Board</h5>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><td>🥇 Sonia Rai</td><td>1200 pts</td></tr>
+          <tr><td>Krati</td><td>1000 pts</td></tr>
+          <tr><td>Laxmi</td><td>900 pts</td></tr>
+          <tr><td>Himani</td><td>886 pts</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notification-box p-3 mb-3">
+      <h6 class="text-center text-purple">🔔 Notifications</h6>
+      <ul class="ps-3">
+        <li>Sunita would like to request 5 plate meal</li>
+        <li>Devin would like to request 5 kg veggies</li>
+        <li>CARE India would like to request 50 plates</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="donor.js"></script>
+</body>
+</html>

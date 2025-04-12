@@ -1,0 +1,50 @@
+body {
+    background-color: #cbd5b4;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .logo {
+    width: 80px;
+    height: auto;
+  }
+  
+  .user-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+  
+  .donor-container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .leaderboard .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  .highlighted{
+    color: chocolate;
+  }
+  
+  .notification-box {
+    border: 2px solid #d1c4e9;
+    border-radius: 8px;
+    background-color: #f3e5f5;
+  }
+  
+  .text-purple {
+    color: #6a1b9a;
+  }
+  
+  .btn-submit {
+    background-color: #43a047;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  

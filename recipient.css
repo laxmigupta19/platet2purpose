@@ -1,0 +1,36 @@
+body {
+    background-color: #cbd5b4;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .logo-img {
+    width: 70px;
+    height: auto;
+  }
+  
+  .user-icon {
+    width: 70px;
+    border-radius: 50%;
+  }
+  
+  .donor-card {
+    background-color: #a1d88b;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+  }
+  
+  input[type="text"] {
+    border-radius: 8px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .container {
+      max-width: 700px;
+    }
+    .donor-card {
+      font-size: 1.1rem;
+    }
+  }
+  

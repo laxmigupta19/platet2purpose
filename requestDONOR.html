@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareBite - Request Food</title>
+    <style>
+        :root {
+            --primary: #a4b465;
+            --secondary: #626f47;
+            --accent: #ffc850;
+            --background: #fefae0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input {
+            margin-right: 8px;
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: var(--secondary);
+        }
+        
+        .required:after {
+            content: " *";
+            color: red;
+        }
+        
+        .form-note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Request Food Assistance</h1>
+        <form id="foodRequestForm">
+            <div class="form-group">
+                <label for="name" class="required">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="contact" class="required">Contact Number</label>
+                <input type="tel" id="contact" name="contact" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email">
+                <p class="form-note">Optional - for updates on your request</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="people" class="required">Number of People to Feed</label>
+                <input type="number" id="people" name="people" min="1" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="required">Food Preference</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="veg" name="preference" value="veg" required>
+                        <label for="veg">Strictly Vegetarian</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="nonveg" name="preference" value="nonveg">
+                        <label for="nonveg">Non-Vegetarian okay</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="allergies">Any Food Allergies or Restrictions</label>
+                <textarea id="allergies" name="allergies" rows="3"></textarea>
+                <p class="form-note">Please list any allergies or dietary restrictions</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="location" class="required">Delivery/Pickup Location</label>
+                <textarea id="location" name="location" rows="3" required></textarea>
+                <p class="form-note">Please provide full address with landmarks if possible</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="timing" class="required">When do you need the food?</label>
+                <select id="timing" name="timing" required>
+                    <option value="" disabled selected>Select time frame</option>
+                    <option value="asap">As soon as possible</option>
+                    <option value="morning">Morning (8am-12pm)</option>
+                    <option value="afternoon">Afternoon (12pm-4pm)</option>
+                    <option value="evening">Evening (4pm-8pm)</option>
+                    <option value="specific">Specific time (please specify below)</option>
+                </select>
+            </div>
+            
+            <div class="form-group" id="specificTimeGroup" style="display: none;">
+                <label for="specificTime">Specific Time Request</label>
+                <input type="text" id="specificTime" name="specificTime">
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" name="notes" rows="3"></textarea>
+                <p class="form-note">Any other information that might help donors</p>
+            </div>
+            
+            <button type="submit" onclick="alert('information submited successfully')">Submit Request</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/hide specific time field based on selection
+        document.getElementById('timing').addEventListener('change', function() {
+            const specificTimeGroup = document.getElementById('specificTimeGroup');
+            if (this.value === 'specific') {
+                specificTimeGroup.style.display = 'block';
+            } else {
+                specificTimeGroup.style.display = 'none';
+            }
+        });
+        
+        // Form submission handler (would be connected to notification system in full implementation)
+        document.getElementById('foodRequestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your request! Donors in your area will be notified.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

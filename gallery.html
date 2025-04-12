@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Plate2Purpose</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .gallery-img {
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-success">Gallery</h2>
+      <p class="text-muted">Snapshots from our food collection and distribution journey.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Gallery Images -->
+      <!-- Repeat or dynamically generate these blocks with real image URLs -->
+      <div class="col-md-4">
+        <img src="Fd1.jpg" class="gallery-img w-100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://source.unsplash.com/600x400/?food,donation" />
+      </div>
+      <div class="col-md-4">
+        <img src="Fd4.jpg" class="gallery-img w-100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://source.unsplash.com/600x400/?shelter,meal" />
+      </div>
+      <div class="col-md-4">
+        <img src="Fd3.jpg" class="gallery-img w-100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://source.unsplash.com/600x400/?volunteers,food" />
+      </div>
+      <div class="col-md-4">
+        <img src="Fd5.png" class="gallery-img w-100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://source.unsplash.com/600x400/?volunteers,food" />
+      </div>
+      <div class="col-md-4">
+        <img src="Fd6.jpg" class="gallery-img w-100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://source.unsplash.com/600x400/?volunteers,food" />
+      </div>
+      <div class="col-md-4">
+        <img src="Fd7.jpg" class="gallery-img w-100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://source.unsplash.com/600x400/?volunteers,food" />
+      </div>
+      <!-- Add more images here -->
+    </div>
+  </div>
+
+  <!-- Modal for Lightbox Preview -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <img id="modalImage" src="#" class="w-100 rounded shadow" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS & Custom Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const modalImage = document.getElementById("modalImage");
+    const galleryImages = document.querySelectorAll(".gallery-img");
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        const imgSrc = img.getAttribute("data-img");
+        modalImage.src = imgSrc;
+      });
+    });
+  </script>
+
+</body>
+</html>

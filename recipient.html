@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipient Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="recipient.css" />
+</head>
+<body>
+
+  <div class="container py-4">
+
+    <div class="text-center mb-3">
+      <img src="logo.png" alt="App Logo" class="logo-img">
+      <h3 class="text-success mt-2">RECEIVER</h3>
+    </div>
+
+    <div class="text-center mb-3">
+      <img src="usericon.jpg" alt="User" class="user-icon">
+      <h5 class="mt-2">Recipient</h5>
+      <p class="text-primary"><i class="bi bi-patch-check-fill"></i> Verified User</p>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center gap-3 mb-3 flex-wrap">
+      <button class="btn btn-success">Search</button>
+      <span class="text-muted"><a href="requestDONOR.html" style="color: green; text-decoration: none";>Request Donor</a></span>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search" id="searchInput">
+      <span class="input-group-text"><i class="bi bi-funnel-fill"></i></span>
+    </div>
+
+    <div class="d-flex justify-content-end align-items-center mb-3">
+      <label class="me-2">Nonveg</label>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="vegToggle">
+      </div>
+      <label class="ms-2">Veg</label>
+    </div>
+
+    <div id="donorList">
+      <div class="donor-card">
+        <strong>Donor name</strong><br>
+        Donated amount: 5 kg<br>
+        Type: vegetables
+      </div>
+      <div class="donor-card">
+        <strong>Donor name</strong><br>
+        Donated amount: 10 plates<br>
+        Type: Palak paneer sabji
+      </div>
+      <div class="donor-card">
+        <strong>Donor name</strong><br>
+        Donated amount: 40 servings<br>
+        Type: full course menu
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button class="btn btn-success px-4" onclick="alert('information submited successfully')">SUBMIT</button>
+    </div>
+
+  </div>
+
+  <script src="recipient.js"></script>
+</body>
+</html>

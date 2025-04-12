@@ -1,0 +1,96 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8fff6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navbar */
+  .custom-navbar {
+    background-color: #e8f3e4;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    color: #4d704d !important;
+    margin: 0 12px;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #2c572c !important;
+    text-decoration: underline;
+  }
+  
+  /* Main Section */
+  .main-section {
+    padding: 50px 20px;
+  }
+  
+  .location-icon {
+    width: 40px;
+  }
+  
+  .main-title {
+    font-weight: bold;
+    color: #6c9a5c;
+  }
+  
+  .subtitle {
+    color: #888;
+    font-size: 1rem;
+  }
+  
+  /* Option Box */
+  .option-box {
+    background-color: #dff2d9;
+    border-radius: 12px;
+    padding: 30px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+  }
+  
+  .option-box:hover {
+    transform: translateY(-8px);
+    background-color: #ccebb9;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .option-img {
+    width: 70px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .option-title {
+    font-weight: bold;
+    color: #4d704d;
+  }
+  
+  .option-text {
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  /* Bottom Image */
+  .bottom-img-box img {
+    max-width: 300px;
+    height: auto;
+  }
+  
+  /* Responsive Tweaks */
+  @media screen and (max-width: 768px) {
+    .main-title {
+      font-size: 1.5rem;
+    }
+    .option-box {
+      padding: 20px;
+    }
+  }
+  
